@@ -4,14 +4,10 @@ class SearchBar extends React.Component {
 
     state = { term: '' };
 
-    onInputChange(event) {
-        console.log(event.target.value);
-    }
-
     onFormSubmit = event => {
         event.preventDefault();
 
-        console.log(this.state.term);
+        this.props.onSubmit(this.state.term)
     }
 
     render() {
@@ -25,7 +21,6 @@ class SearchBar extends React.Component {
                             value={this.state.term}
                             onChange={ e => this.setState({ term: e.target.value.toUpperCase() }) } />
                     </div>
-                    
                 </form>
             </div>
         );
